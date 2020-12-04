@@ -54,6 +54,9 @@ export default {
     padding-top: 60px;
     padding-left: 156px;
     display: flex;
+    @media (max-width: 500px) {
+      padding-left: 0;
+    }
     > aside {
       flex-shrink: 0;
       background: lightblue;
@@ -78,9 +81,6 @@ export default {
       padding: 16px;
       background: lightgreen;
       overflow: auto;
-    }
-    @media (max-width: 500px) {
-      padding-left: 0;
     }
   }
 }
