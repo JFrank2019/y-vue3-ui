@@ -76,6 +76,7 @@ $grey: grey;
   &:hover,
   &:focus {
     color: lighten($blue, 10%);
+    border: 1px solid $blue;
   }
 
   &:focus {
