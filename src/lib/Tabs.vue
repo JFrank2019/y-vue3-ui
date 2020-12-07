@@ -18,19 +18,14 @@
       <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="gulu-tabs-content">
-      <component
-        class="gulu-tabs-content-item"
-        v-for="c in defaults"
-        :is="c"
-        :class="{ selected: c.props.title === selected }"
-      />
+      <component :is="current" :key="current.props.title" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import { computed, ref, onMounted, onUpdated } from 'vue'
+import { ref, onMounted, onUpdated, computed } from 'vue'
 export default {
   props: {
     selected: {
@@ -41,7 +36,8 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
-    const x = () => {
+
+    const moveLine = () => {
       const { width } = selectedItem.value.getBoundingClientRect()
       indicator.value.style.width = width + 'px'
 
@@ -51,9 +47,8 @@ export default {
       indicator.value.style.left = left + 'px'
     }
 
-    onMounted(x)
-
-    onUpdated(x)
+    onMounted(moveLine)
+    onUpdated(moveLine)
 
     const defaults = context.slots.default()
     defaults.forEach(tag => {
@@ -62,7 +57,7 @@ export default {
       }
     })
     const current = computed(() => {
-      return defaults.filter(tag => tag.props.title === props.selected)[0]
+      return defaults.find(tag => tag.props.title === props.selected)
     })
     const titles = defaults.map(tag => {
       return tag.props.title
@@ -71,9 +66,9 @@ export default {
       context.emit('update:selected', title)
     }
     return {
+      current,
       defaults,
       titles,
-      current,
       select,
       indicator,
       container,
