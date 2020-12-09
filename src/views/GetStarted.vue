@@ -1,3 +1,3 @@
 <template>
-  <div>开始</div>
+  <article class="markdown-body">开始使用</article>
 </template>
