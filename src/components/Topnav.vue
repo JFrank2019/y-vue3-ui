@@ -63,6 +63,7 @@ $color: #f0fbff;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    color: #6e77fa;
     > li {
       margin: 0 1em;
     }
