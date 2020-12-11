@@ -11,8 +11,12 @@ import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
 import Markdown from './components/Markdown.vue'
 
-const md = fileName => {
-  return h(Markdown, { path: `../markdown/${fileName}.md`, key: fileName })
+import intro from './markdown/intro.md'
+import getStarted from './markdown/get-started.md'
+import install from './markdown/install.md'
+
+const md = string => {
+  return h(Markdown, { content: string, key: string })
 }
 
 const router = createRouter({
@@ -27,9 +31,9 @@ const router = createRouter({
       component: Doc,
       children: [
         { path: '', redirect: '/doc/intro' },
-        { path: 'intro', component: md('intro') },
-        { path: 'get-started', component: md('get-started') },
-        { path: 'install', component: md('install') },
+        { path: 'intro', component: md(intro) },
+        { path: 'get-started', component: md(getStarted) },
+        { path: 'install', component: md(install) },
         { path: 'switch', component: SwitchDemo },
         { path: 'button', component: ButtonDemo },
         { path: 'dialog', component: DialogDemo },
@@ -37,10 +41,6 @@ const router = createRouter({
       ]
     }
   ]
-})
-
-router.afterEach(() => {
-  console.log('路由切换了')
 })
 
 export default router

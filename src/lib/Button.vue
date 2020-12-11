@@ -4,7 +4,6 @@
     <slot />
   </button>
 </template>
-
 <script lang="ts">
 import { computed } from 'vue'
 export default {
@@ -39,12 +38,10 @@ export default {
         [`gulu-level-${level}`]: level
       }
     })
-
     return { classes }
   }
 }
 </script>
-
 <style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
@@ -68,23 +65,28 @@ $grey: grey;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 250ms;
-
   & + & {
     margin-left: 8px;
   }
-
   &:hover,
   &:focus {
-    color: lighten($blue, 10%);
-    border: 1px solid $blue;
+    color: $blue;
+    border-color: $blue;
   }
-
   &:focus {
     outline: none;
   }
-
   &::-moz-focus-inner {
     border: 0;
+  }
+  &.gulu-theme-link {
+    border-color: transparent;
+    box-shadow: none;
+    color: $blue;
+    &:hover,
+    &:focus {
+      color: lighten($blue, 10%);
+    }
   }
   &.gulu-theme-text {
     border-color: transparent;
@@ -94,6 +96,16 @@ $grey: grey;
     &:focus {
       background: darken(white, 5%);
     }
+  }
+  &.gulu-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.gulu-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
   }
   &.gulu-theme-button {
     &.gulu-level-main {
@@ -169,13 +181,13 @@ $grey: grey;
     border-width: 2px;
     animation: gulu-spin 1s infinite linear;
   }
-  @keyframes gulu-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+}
+@keyframes gulu-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
