@@ -30,9 +30,7 @@ export default {
     const toggle = () => {
       x.value = !x.value
     }
-    const f1 = () => {
-      return false
-    }
+    const f1 = () => {}
     const f2 = () => {}
     return {
       x,

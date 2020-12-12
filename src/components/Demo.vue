@@ -74,12 +74,8 @@ $border-color: #ebebeb;
     text-align: center;
     padding: 8px 16px;
     border-top: 1px solid $border-color;
-    color: #d3dce6;
-    transition: all 250ms;
-    &:hover {
-      background: #f9fafc;
-      color: $main-color;
-    }
+    background: #f9fafc;
+    color: $main-color;
   }
 
   &-code {

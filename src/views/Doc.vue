@@ -31,6 +31,7 @@
           </li>
         </ol>
       </aside>
+      <div class="aside-overlay" v-if="asideVisible" @click="toggleAsideVisible"></div>
       <main>
         <router-view />
       </main>
@@ -46,8 +47,12 @@ export default {
   components: { Topnav },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible') // get
+    const toggleAsideVisible = () => {
+      asideVisible.value = !asideVisible.value
+    }
     return {
-      asideVisible
+      asideVisible,
+      toggleAsideVisible
     }
   }
 }
@@ -65,8 +70,9 @@ $aside-index: 10;
     flex-shrink: 0;
   }
   > .content {
+    position: relative;
     flex-grow: 1;
-    padding-top: 60px;
+    padding-top: 50px;
     padding-left: 156px;
     display: flex;
     @media (max-width: 500px) {
@@ -128,6 +134,16 @@ $aside-index: 10;
             }
           }
         }
+      }
+    }
+    > .aside-overlay {
+      @media (max-width: 500px) {
+        position: absolute;
+        top: 50px;
+        left: 150px;
+        z-index: 100;
+        width: calc(100vw - 150px);
+        height: calc(100vh - 50px);
       }
     }
     > main {
