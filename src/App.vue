@@ -19,3 +19,20 @@ export default {
   }
 }
 </script>
+
+<style>
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background: rgba(144, 147, 153, 0.3);
+}
+
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  border-radius: 10px;
+}
+</style>

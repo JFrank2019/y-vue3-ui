@@ -2,7 +2,7 @@
   <div class="layout">
     <Topnav toggle-menu-button-visible class="nav" />
     <div class="content">
-      <aside v-if="asideVisible">
+      <aside :class="{ open: asideVisible }">
         <h2>文档</h2>
         <ol>
           <li>
@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../index.scss';
 $aside-index: 10;
 
 .layout {
@@ -73,28 +74,58 @@ $aside-index: 10;
     }
     > aside {
       flex-shrink: 0;
-      background: lightblue;
+      background: #f9f9f9;
       width: 150px;
       position: fixed;
-      top: 0;
+      top: 50px;
       left: 0;
-      padding: 70px 0 16px;
+      bottom: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
       height: 100%;
       z-index: $aside-index;
+      transition: 0.4s cubic-bezier(0.4, 0, 0, 1);
+
+      @media (max-width: 500px) {
+        transform: translateX(-150px);
+        &.open {
+          transform: translateX(0);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+      }
 
       > h2 {
-        margin-bottom: 4px;
         padding: 0 16px;
+        font-size: 16px;
+        height: 40px;
+        line-height: 40px;
+        font-weight: bold;
       }
       > ol {
         > li {
+          height: 40px;
+          line-height: 40px;
+          &:hover {
+            color: $main-color;
+          }
           > a {
+            font-size: 14px;
             display: block;
-            padding: 4px 16px;
+            padding: 0 16px;
             text-decoration: none;
           }
           .router-link-active {
-            background: white;
+            position: relative;
+            color: $main-color;
+            background: linear-gradient(90deg, rgba(223, 229, 246, 1) 0%, rgba(183, 193, 249, 1) 100%);
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              border-right: 3px solid $main-color;
+            }
           }
         }
       }

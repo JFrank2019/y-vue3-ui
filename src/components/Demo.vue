@@ -5,8 +5,12 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button v-if="!codeVisible" @click="showCode">显示代码</Button>
-      <Button v-else @click="hideCode">收起代码</Button>
+      <div v-if="!codeVisible" @click="showCode">
+        <span class="text">显示代码</span>
+      </div>
+      <div v-else @click="hideCode">
+        <span class="text">收起代码</span>
+      </div>
     </div>
     <div class="demo-code" v-if="codeVisible">
       <pre class="language-css" v-html="html"></pre>
@@ -44,11 +48,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$border-color: #d9d9d9;
+@import '../index.scss';
+$border-color: #ebebeb;
 
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
+  border-radius: 3px;
+  transition: 0.2s;
+  &:hover {
+    box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5);
+  }
 
   > h2 {
     font-size: 20px;
@@ -61,13 +71,20 @@ $border-color: #d9d9d9;
   }
 
   &-actions {
+    text-align: center;
     padding: 8px 16px;
-    border-top: 1px dashed $border-color;
+    border-top: 1px solid $border-color;
+    color: #d3dce6;
+    transition: all 250ms;
+    &:hover {
+      background: #f9fafc;
+      color: $main-color;
+    }
   }
 
   &-code {
     padding: 8px 16px;
-    border-top: 1px dashed $border-color;
+    border-top: 1px solid $border-color;
 
     > pre {
       line-height: 1.1;

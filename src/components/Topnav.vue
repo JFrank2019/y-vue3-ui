@@ -1,5 +1,5 @@
 <template>
-  <div class="topnav">
+  <div class="topnav" :class="{ doc: toggleMenuButtonVisible }">
     <router-link to="/" class="logo">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-yang"></use>
@@ -43,7 +43,7 @@ $color: #f0fbff;
 .topnav {
   color: $color;
   display: flex;
-  padding: 16px;
+  padding: 0 40px;
   position: fixed;
   top: 0;
   left: 0;
@@ -51,6 +51,12 @@ $color: #f0fbff;
   z-index: 20;
   justify-content: center;
   align-items: center;
+  height: 50px;
+  &.doc {
+    background: #fff;
+    border-bottom: 1px solid #dcdfe6;
+  }
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -79,6 +85,9 @@ $color: #f0fbff;
   }
   @media (max-width: 500px) {
     /* [0, 500) */
+    > a {
+      display: inherit;
+    }
     > .menu {
       display: none;
     }
