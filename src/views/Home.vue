@@ -2,8 +2,7 @@
   <div class="topnavAndBanner">
     <Topnav />
     <div class="banner">
-      <h1>咕噜UI</h1>
-      <h2>一个厉害的 UI 框架</h2>
+      <h1 class="main-title">Vue3 UI框架</h1>
       <p class="actions">
         <a href="https://github.com">Github</a>
         <router-link to="/doc">开始</router-link>
@@ -60,6 +59,9 @@ $color: #f0fbff;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  > .main-title {
+    margin-bottom: 10px;
+  }
   > .actions {
     padding: 8px 0;
     a {
