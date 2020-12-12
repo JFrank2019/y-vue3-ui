@@ -12,14 +12,14 @@ export default {
       globals: {
         vue: 'Vue'
       },
-      name: 'y-vue3',
-      file: 'dist/lib/y-vue3.js',
+      name: 'y-vue3-ui',
+      file: 'dist/lib/y-vue3-ui.js',
       format: 'umd',
       plugins: [terser()]
     },
     {
-      name: 'y-vue3',
-      file: 'dist/lib/y-vue3.esm.js',
+      name: 'y-vue3-ui',
+      file: 'dist/lib/y-vue3-ui.esm.js',
       format: 'es',
       plugins: [terser()]
     }
