@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'GuluTab'
+  name: 'Tab'
 }
 </script>
