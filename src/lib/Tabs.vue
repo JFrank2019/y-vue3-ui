@@ -27,6 +27,7 @@
 import Tab from './Tab.vue'
 import { ref, onMounted, watchEffect, computed } from 'vue'
 export default {
+  name: 'Tabs',
   props: {
     selected: {
       type: String

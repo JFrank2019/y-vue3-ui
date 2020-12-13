@@ -4,6 +4,7 @@
 
 <script lang="ts">
 export default {
+  name: 'Switch',
   props: {
     value: Boolean
   },
