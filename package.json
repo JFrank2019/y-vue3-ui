@@ -1,11 +1,11 @@
 {
   "name": "y-vue3-ui",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "files": [
-    "dist/lib/*"
+    "package/lib/*"
   ],
-  "main": "dist/lib/y-vue3-ui.js",
-  "module": "dist/lib/y-vue3-ui.esm.js",
+  "main": "package/lib/y-vue3-ui.js",
+  "module": "package/lib/y-vue3-ui.esm.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
